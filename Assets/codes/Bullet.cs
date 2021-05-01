@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 
     private float speed = 30f;
     private float time = 0f;
+    private float max_time = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +21,9 @@ public class Bullet : MonoBehaviour
     {
         //transform.rotation = GameObject.Find("avaruusalus").transform.rotation;
         transform.position += transform.up * Time.deltaTime * speed;
-        time++;
+        time += Time.deltaTime;
 
-        if (time > 90)
+        if (time > max_time)
         {
             Destroy(this.gameObject);
         }
